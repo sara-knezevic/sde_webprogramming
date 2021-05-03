@@ -38,11 +38,19 @@ export class MovieListComponent implements OnInit {
   }
 
   setActiveMovie(movie: any, index: any): void {
-    this.currentMovie = movie;
-    this.currentIndex = index;
+    if (this.currentMovie == movie) {
+      this.currentMovie = null;
+      this.currentIndex = -1;
+    } else {
+      this.currentMovie = movie;
+      this.currentIndex = index;
+    }
   }
 
   removeAllMovies(): void {
+    this.currentMovie = null;
+    this.currentIndex = -1;
+
     this.movieService.deleteAll()
       .subscribe(
         response => {
@@ -55,10 +63,12 @@ export class MovieListComponent implements OnInit {
   }
 
   searchTitle(): void {
+    this.currentMovie = null;
+    this.currentIndex = -1;
+
     this.movieService.findByTitle(this.title)
       .subscribe(
         data => {
-          console.log(this.title);
           this.movies = data;
           console.log(data);
         },

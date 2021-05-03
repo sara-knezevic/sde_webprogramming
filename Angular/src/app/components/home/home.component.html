@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="row">
     <div class="col-md-6">
     <h4>Movies List</h4>
     <ul class="list-group">
@@ -9,4 +9,17 @@
         {{ movie.title }}
     </li>
     </ul>
+    </div>
+
+    <div class="col-md-6">
+    <h4>TV Shows List</h4>
+    <ul class="list-group">
+    <li
+        class="list-group-item"
+        *ngFor="let show of shows; let i = index"
+    >
+        {{ show.title }}
+    </li>
+    </ul>
+    </div>
 </div>

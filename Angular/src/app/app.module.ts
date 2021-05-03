@@ -9,6 +9,9 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { AddShowComponent } from './components/add-show/add-show.component';
+import { ShowDetailsComponent } from './components/show-details/show-details.component';
+import { ShowListComponent } from './components/show-list/show-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { HomeComponent } from './components/home/home.component';
     AddMovieComponent,
     MovieDetailsComponent,
     MovieListComponent,
-    HomeComponent
+    HomeComponent,
+    AddShowComponent,
+    ShowDetailsComponent,
+    ShowListComponent
   ],
   imports: [
     BrowserModule,

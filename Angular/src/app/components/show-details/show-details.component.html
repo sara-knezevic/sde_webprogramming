@@ -1,0 +1,67 @@
+<div style="width: 400px; margin: auto;">
+    <div *ngIf="currentShow" class="edit-form">
+      <h4>Show</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentShow.title"
+            name="title"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Genre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="genre"
+            [(ngModel)]="currentShow.genre"
+            name="genre"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="seasons">Seasons</label>
+            <input
+              class="form-control"
+              id="seasons"
+              [(ngModel)]="currentShow.seasons"
+              name="seasons"
+            />
+          </div>
+  
+          <div class="form-group checkboxes">
+            <label for="seasons"> <span>Active   </span>
+            <input
+              type="checkbox"
+              id="active"
+              [(ngModel)]="currentShow.active"
+              name="active"
+            /> </label>
+        </div>
+      </form>
+  
+      <button class="badge badge-danger mr-2" (click)="deleteShow()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success"
+        (click)="updateShow()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentShow">
+      <br />
+      <p>Cannot access this Show...</p>
+    </div>
+  </div>
+  

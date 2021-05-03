@@ -7,7 +7,7 @@
             type="text"
             class="form-control"
             id="title"
-            [(ngModel)]="movie.title"
+            [(ngModel)]="show.title"
             required
             name="title"
             placeholder="Title..."
@@ -20,7 +20,7 @@
             type="text"
             class="form-control"
             id="genre"
-            [(ngModel)]="movie.genre"
+            [(ngModel)]="show.genre"
             required
             name="genre"
             placeholder="Genre..."
@@ -28,23 +28,33 @@
         </div>
 
         <div class="form-group">
-          <label for="year">Year</label>
+          <label for="seasons">Seasons</label>
           <input
             class="form-control"
-            id="year"
-            [(ngModel)]="movie.year"
-            name="year"
-            placeholder="Year..."
+            id="seasons"
+            [(ngModel)]="show.seasons"
+            name="seasons"
+            placeholder="Seasons..."
           />
         </div>
+
+        <div class="form-group checkboxes">
+            <label for="seasons"> <span>Active   </span>
+            <input
+              type="checkbox"
+              id="active"
+              [(ngModel)]="show.active"
+              name="active"
+            /> </label>
+        </div>
   
-        <button (click)="saveMovie()" class="btn btn-success btn-block">Submit</button>
+        <button (click)="saveShow()" class="btn btn-success btn-block">Submit</button>
         <div style="text-align: center;">* marked fields are mandatory.</div>
       </div>
   
       <div *ngIf="submitted" class="center">
           <h4>You submitted successfully!<br>Would you like to add another one? </h4>
-          <button class="btn btn-success btn-block" (click)="newMovie()">Add</button>
+          <button class="btn btn-success btn-block" (click)="newShow()">Add</button>
       </div>
     </div>
   </div>
