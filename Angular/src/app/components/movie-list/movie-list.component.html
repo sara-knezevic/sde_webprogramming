@@ -1,0 +1,63 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Movies List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let movie of movies; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveMovie(movie, i)"
+        >
+          {{ movie.title }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllMovies()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentMovie">
+        <h4>Movie</h4>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentMovie.title }}
+        </div>
+        <div>
+          <label><strong>Genre:</strong></label>
+          {{ currentMovie.genre }}
+        </div>
+        <div>
+          <label><strong>Year:</strong></label> {{ currentMovie.year }}
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/movies/{{ currentMovie.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentMovie">
+        <br />
+        <p>Please click on a Movie...</p>
+      </div>
+    </div>
+  </div>
+  

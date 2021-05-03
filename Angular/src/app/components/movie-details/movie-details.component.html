@@ -1,0 +1,58 @@
+<div style="width: 400px; margin: auto;">
+    <div *ngIf="currentMovie" class="edit-form">
+      <h4>Movie</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentMovie.title"
+            name="title"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Genre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="genre"
+            [(ngModel)]="currentMovie.genre"
+            name="genre"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Year</label>
+          <input
+            type="text"
+            class="form-control"
+            id="year"
+            [(ngModel)]="currentMovie.year"
+            name="year"
+          />
+        </div>
+      </form>
+  
+      <button class="badge badge-danger mr-2" (click)="deleteMovie()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success"
+        (click)="updateMovie()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentMovie">
+      <br />
+      <p>Cannot access this Movie...</p>
+    </div>
+  </div>
+  

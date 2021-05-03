@@ -1,0 +1,51 @@
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+      <div *ngIf="!submitted" class="center">
+        <div class="form-group" >
+          <label for="title">Title *</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="movie.title"
+            required
+            name="title"
+            placeholder="Title..."
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="genre">Genre *</label>
+          <input
+            type="text"
+            class="form-control"
+            id="genre"
+            [(ngModel)]="movie.genre"
+            required
+            name="genre"
+            placeholder="Genre..."
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="year">Year</label>
+          <input
+            class="form-control"
+            id="year"
+            [(ngModel)]="movie.year"
+            name="year"
+            placeholder="Year..."
+          />
+        </div>
+  
+        <button (click)="saveMovie()" class="btn btn-success">Submit</button>
+        <div>* marked fields are mandatory.</div>
+      </div>
+  
+      <div *ngIf="submitted" class="center">
+          <h4>You submitted successfully!<br>Would you like to add another one? </h4>
+          <button class="btn btn-success" (click)="newMovie()">Add</button>
+      </div>
+    </div>
+  </div>
+  
